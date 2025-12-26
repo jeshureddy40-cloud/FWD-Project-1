@@ -1,134 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FWD Project 1 - Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        
-        .container {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            max-width: 800px;
-            width: 100%;
-        }
-        
-        h1 {
-            color: #333;
-            text-align: center;
-            margin-bottom: 10px;
-            font-size: 2.5em;
-        }
-        
-        .subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 40px;
-            font-size: 1.1em;
-        }
-        
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-        
-        .project-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 30px 20px;
-            border-radius: 15px;
-            text-align: center;
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            font-size: 1.2em;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        }
-        
-        .project-number {
-            font-size: 2em;
-            margin-bottom: 10px;
-            opacity: 0.9;
-        }
-        
-        @media (max-width: 600px) {
-            .container {
-                padding: 30px 20px;
-            }
-            
-            h1 {
-                font-size: 2em;
-            }
-            
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Professional Certification Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style1.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <h1>FWD Project 1</h1>
-        <p class="subtitle">Select a project to view</p>
-        
-        <div class="projects-grid">
-            <a href="project.html" class="project-card">
-                <div class="project-number">01</div>
-                Project 1
-            </a>
-            <a href="project2.html" class="project-card">
-                <div class="project-number">02</div>
-                Project 2
-            </a>
-            <a href="project3.html" class="project-card">
-                <div class="project-number">03</div>
-                Project 3
-            </a>
-            <a href="project4.html" class="project-card">
-                <div class="project-number">04</div>
-                Project 4
-            </a>
-            <a href="project5.html" class="project-card">
-                <div class="project-number">05</div>
-                Project 5
-            </a>
-            <a href="project6.html" class="project-card">
-                <div class="project-number">06</div>
-                Project 6
-            </a>
-            <a href="project7.html" class="project-card">
-                <div class="project-number">07</div>
-                Project 7
-            </a>
-            <a href="project8.html" class="project-card">
-                <div class="project-number">08</div>
-                Project 8
-            </a>
-        </div>
+  <header class="navbar">
+    <div class="logo">SkillCert Track</div>
+    <nav>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#add-cert">Add Certificate</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Track Your Professional Certifications</h1>
+      <p>Upload, store and monitor expiry dates of all your skill certificates in one smart dashboard.</p>
+      <button class="primary-btn" onclick="scrollToForm()">Get Started</button>
     </div>
+    <div class="hero-visual">
+      <div class="hero-card shadow-float">
+        <h3>Upcoming Expiry</h3>
+        <p class="hero-stat"><span id="expSoonCount">0</span> certificates</p>
+        <div class="hero-bar">
+          <div class="hero-bar-fill"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section id="dashboard" class="section">
+      <div class="section-header">
+        <h2>Certification Dashboard</h2>
+        <p>View all your uploaded certifications with status based on expiry date.</p>
+      </div>
+
+      <div class="filters">
+        <button class="chip active" data-filter="all">All</button>
+        <button class="chip" data-filter="active">Active</button>
+        <button class="chip" data-filter="soon">Expiring Soon</button>
+        <button class="chip" data-filter="expired">Expired</button>
+      </div>
+
+      <div id="certList" class="card-grid">
+        <!-- Cards injected by JS -->
+      </div>
+    </section>
+
+    <section id="add-cert" class="section section-alt">
+      <div class="section-header">
+        <h2>Add New Certificate</h2>
+        <p>Enter the details and upload the proof file to store it safely.</p>
+      </div>
+
+      <form id="certForm" class="card form-card">
+        <div class="form-row">
+          <div class="field">
+            <label for="title">Certificate Title</label>
+            <input id="title" type="text" placeholder="AWS Cloud Practitioner" required />
+          </div>
+          <div class="field">
+            <label for="provider">Provider</label>
+            <input id="provider" type="text" placeholder="Amazon Web Services" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="issueDate">Issue Date</label>
+            <input id="issueDate" type="date" required />
+          </div>
+          <div class="field">
+            <label for="expiryDate">Expiry Date</label>
+            <input id="expiryDate" type="date" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="file">Upload Certificate (image/pdf)</label>
+            <input id="file" type="file" accept=".png,.jpg,.jpeg,.pdf" />
+          </div>
+        </div>
+
+        <button type="submit" class="primary-btn full-width">Save Certificate</button>
+      </form>
+    </section>
+  </main>
+
+  <div id="toast" class="toast">Certificate added successfully!</div>
+
+  <div id="modal" class="modal">
+    <div class="modal-backdrop" onclick="closeModal()"></div>
+    <div class="modal-content shadow-float">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <h3 id="modalTitle">Certificate</h3>
+      <p id="modalMeta"></p>
+      <a id="modalLink" href="#" target="_blank" class="primary-btn">Open File</a>
+    </div>
+  </div>
 </body>
 </html>
