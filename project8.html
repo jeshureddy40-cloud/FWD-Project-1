@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upcoming Expired Certificates</title>
+  <link rel="stylesheet" href="style8.css">
+</head>
+<body>
+  <header>
+    <h1>Certificate Expiry Tracker</h1>
+    <nav>
+        <a href="project.html">Home</a>
+        <a href="project6.html"> Added Certification</a>
+        <a href="project7.html">UPLOAD</a>
+        <a href="project8.html">EXPIRED Certification</a>
+        </nav>
+  </header>
+
+  <main>
+    <h2>Upcoming Expired Certificates</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Certificate Name</th>
+          <th>Holder</th>
+          <th>Expiry Date</th>
+        </tr>
+      </thead>
+      <tbody id="certTableBody"></tbody>
+    </table>
+  </main>
+
+  <footer>
+    &copy; 2025 Certificate Tracker. All rights reserved.
+  </footer>
+
+  <script>
+    const certificates = [
+      { name: "AWS Certified Developer", holder: "Alice", expiry: "2025-11-20" },
+      { name: "Azure Fundamentals", holder: "Bob", expiry: "2025-12-15" },
+      { name: "Google Cloud Architect", holder: "Charlie", expiry: "2026-01-10" },
+      { name: "CompTIA Security+", holder: "Dana", expiry: "2025-11-25" }
+    ];
+
+    const today = new Date();
+    const threshold = 30; // days
+    const tbody = document.getElementById("certTableBody");
+    const expiringSoon = [];
+
+    certificates.forEach(cert => {
+      const expiryDate = new Date(cert.expiry);
+      const diffDays = Math.ceil((expiryDate - today) / (1000 * 60 * 60 * 24));
+
+      if (diffDays <= threshold && diffDays >= 0) {
+        expiringSoon.push(`${cert.name} (Holder: ${cert.holder}, Expires: ${cert.expiry})`);
+
+        const row = document.createElement("tr");
+        row.className = "expiring-soon"; // use className instead of classList.add for single class
+        row.innerHTML = `
+          <td>${cert.name}</td>
+          <td>${cert.holder}</td>
+          <td>${cert.expiry}</td>
+        `;
+        tbody.appendChild(row);
+      }
+    });
+
+    if (expiringSoon.length > 0) {
+      alert("⚠ The following certificates are expiring soon:\n\n" + expiringSoon.join("\n"));
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Certification Table</title>
+  <link rel="stylesheet" href="style6.css" />
+</head>
+<body>
+  <header>
+        <h1> professional skill certification tracking </h1>
+        <nav>
+        <a href="project.html">Home</a>
+        <a href="project6.html"> Added Certification</a>
+        <a href="project7.html">UPLOAD</a>
+        <a href="project8.html">EXPIRED Certification</a>
+        </nav>
+    </header>
+    <section class="added certification">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Issuer</th>
+        <th>Issue Date</th>
+        <th>Expiry Date</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+
+  <script>
+    const data = JSON.parse(localStorage.getItem('certification'));
+    if (data) {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${data.name}</td>
+        <td>${data.issuer}</td>
+        <td>${data.issueDate}</td>
+        <td>${data.expiryDate}</td>
+      `;
+      document.getElementById('tableBody').appendChild(row);
+    }
+  </script>
+  </section>
+   <footer>
+        <p> © 2025 Professional Skill Certification Tracker. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

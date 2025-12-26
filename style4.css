@@ -1,0 +1,110 @@
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body setup */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #74ebd5, #ACB6E5);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+header {
+  background-color: #1e3c72;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+  font-size: 24px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Login Section */
+.login {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-page {
+  background: white;
+  padding: 40px 50px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  width: 350px;
+  text-align: center;
+}
+
+.login-page h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0 20px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+input:focus {
+  border-color: #2575fc;
+  box-shadow: 0 0 5px #2575fc;
+  outline: none;
+}
+
+/* Buttons */
+input[type="submit"],
+input[type="reset"] {
+  width: 45%;
+  padding: 10px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+input[type="submit"] {
+  background-color: #2575fc;
+  color: white;
+}
+
+input[type="reset"] {
+  background-color: #999;
+  color: white;
+}
+
+input[type="submit"]:hover {
+  background-color: #1e3c72;
+}
+
+input[type="reset"]:hover {
+  background-color: #777;
+}
+
+/* Footer */
+footer {
+  background-color: #1e3c72;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}

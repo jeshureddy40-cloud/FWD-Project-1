@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>FORM VALIDATION</title>
+   <link rel="stylesheet" href="style3.css">
+      <script>
+       function validate(form){
+                if(form1.t1.value==""){
+                alert("Enter Your Name");
+                return false;
+                }
+                if(form1.email1.value==""){
+                    alert("Enter Correct Email"); 
+                      return false;
+                }
+                if(form1.pass1.value==""){
+                    alert("Enter Password");
+                      return false;
+                }
+                 if(form1.pass2.value==""){
+                    alert("Enter Re-Type Password");
+                      return false;
+                } 
+                var a1=form1.pass1.value; 
+                var a2=form1.pass2.value;
+                if((a1,a2=="")||(a1!=a2)){
+                  alert("Enter Correct Password/password not correct")
+                  return false;   
+                }
+                var A=form1.mobile.value;
+                if((A=="")||(A<=10)){
+                    alert("Enter Valid Phone Number");
+                    return false;
+                }
+                if(form1.mobile.value==""){
+                    alert("Enter Valid Mobile Number");
+                      return false;
+                }
+            var m=form1.mobile.value;
+            if(m.length!=10){
+              alert("Mobile Number Incorrect");
+              return false;
+            }
+        }
+    </script>
+</head>
+<body>
+      <form name="form1" method="post" action="project.html">
+        <h1> REGISTRATION FORM</h1>
+     Name: <input type="text" name="t1"> <br><br>
+     Email: <input type="email" name="email1"> <br><br>
+     Password: <input type="password" name="pass1"> <br><br>
+     Re-Type Password: <input type="password" name="pass2"> <br><br>
+     Mobile Number: <input type="number" name="mobile"> <br><br>
+     <input type="Submit" value="Submit" onclick="return validate(this.form)">
+        <input type="Reset" value="Reset">
+    
+</body>
+</html>

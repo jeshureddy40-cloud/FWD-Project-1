@@ -1,0 +1,95 @@
+body {
+    /* the border is o */
+    border: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #f0fdfa; 
+    margin: 0;
+}
+
+header {
+    background: linear-gradient(90deg, #0f766e, #0ea5e9); 
+    color: #ffffff;
+    /* space inside an box — between its content and border. */
+    padding: 25px 25px;
+    /* aline the items in a row */
+    display: flex;
+    /* evenly space btw items like first t left and last at right */
+    justify-content: space-between;
+    /* aline items vertically center */
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    color: #ffffff;
+    /* space outside the box */
+    margin: 0 20px;
+    /* removes underline */
+    text-decoration: none;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #d1fae5; 
+    text-decoration: underline;
+}
+
+
+
+.btn {
+    display: inline-block;
+    background-color: #0d9488; 
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    margin-top: 30px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #115e59; 
+    transform: scale(1.05);
+}
+
+footer {
+    background-color: #0f766e;
+    color: #e0f2f1;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    font-size: 14px;
+}
+.upload {
+    text-align: center;
+    margin-top: 100px;
+}
+
+/* Hover effect */
+.upload a:hover {
+  background: linear-gradient(135deg, #388e3c, #66bb6a);
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(76, 175, 80, 0.6);
+  border-color: #a5d6a7;
+}
+
+/* Click effect */
+.upload a:active {
+  transform: scale(0.96);
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* Glowing pulse animation */
+@keyframes glow {
+  0% { box-shadow: 0 0 10px rgba(76,175,80,0.4); }
+  50% { box-shadow: 0 0 25px rgba(76,175,80,0.8); }
+  100% { box-shadow: 0 0 10px rgba(76,175,80,0.4); }
+}
+
+.upload a {
+  animation: glow 2s infinite;
+}

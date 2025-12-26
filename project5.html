@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Certification Form</title>
+  <link rel="stylesheet" href="style5.css" />
+</head>
+<body>
+  <header>
+        <h1> professional skill certification tracking </h1>
+        <nav>
+        <a href="project.html">Home</a>
+        <a href="project6.html"> Added Certification</a>
+        <a href="project7.html">UPLOAD</a>
+        <a href="project8.html">EXPIRED Certification</a>
+        </nav>
+    </header>
+    <section class="section-form">
+  <form id="certForm">
+    <label for="certName">Certification Name:</label>
+    <input type="text" id="certName" required />
+
+    <label for="issuer">Issuer:</label>
+    <input type="text" id="issuer" required />
+
+    <label for="issueDate">Issue Date:</label>
+    <input type="date" id="issueDate" required />
+
+    <label for="expiryDate">Expiry Date:</label>
+    <input type="date" id="expiryDate" required />
+
+    <button class="s" type="project6.html">Submit & View Table</button>
+  </form>
+
+  <script>
+    document.getElementById('certForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const certData = {
+        name: document.getElementById('certName').value,
+        issuer: document.getElementById('issuer').value,
+        issueDate: document.getElementById('issueDate').value,
+        expiryDate: document.getElementById('expiryDate').value
+      };
+
+      localStorage.setItem('certification', JSON.stringify(certData));
+
+      // Show success popup
+      alert("Certification successfully submitted!");
+
+      // Redirect to table page
+      window.location.href = "project6.html";
+    });
+  </script>
+  </section>
+  <footer>
+        <p> © 2025 Professional Skill Certification Tracker. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
