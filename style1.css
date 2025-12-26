@@ -2,12 +2,12 @@ body {
     /* the border is o */
     border: 0;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: #f0fdfa; 
-    margin: 0;
+    background-color: #dbeafe;
+        margin: 0;
 }
 
 header {
-    background: linear-gradient(90deg, #0f766e, #0ea5e9); 
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
     color: #ffffff;
     /* space inside an box — between its content and border. */
     padding: 25px 25px;
@@ -36,15 +36,15 @@ nav a:hover {
 }
 
 .main {
-    background-color: #99f6e4; 
-    color: #065f46; 
+    background-color: ##e0e7ff; 
+    color: ##1e3a8a; 
     padding: 80px 20px;
     text-align: center;
 }
 
 .btn {
     display: inline-block;
-    background-color: #0d9488; 
+    background-color: ##f97316; 
     color: #ffffff;
     border-radius: 5px;
     padding: 12px 25px;
@@ -55,12 +55,12 @@ nav a:hover {
 }
 
 .btn:hover {
-    background-color: #115e59; 
+    background-color: ##ea580c; 
     transform: scale(1.05);
 }
 
 footer {
-    background-color: #0f766e;
+    background-color: ##1e3a8a;
     color: #e0f2f1;
     text-align: center;
     padding: 20px;
